@@ -16,7 +16,9 @@ cabal-version:       >=1.10
 library
   hs-source-dirs:      src
   exposed-modules:     HBatteries.CSV
-  build-depends:       base >= 4.7 && < 5, cassava >= 0.4.0.0
+  build-depends:       base >= 4.7 && < 5, cassava >= 0.4, vector
+                        , bytestring, attoparsec, unordered-containers
+                        , bytestring-lexing >= 0.5
   default-language:    Haskell2010
 
 executable HBatteries-exe
