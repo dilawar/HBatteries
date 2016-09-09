@@ -22,15 +22,13 @@ type Vec = V.Vector Double
 
 instance C.FromRecord Double
 
-{-toWord8 = fromIntegral . fromEnum-}
-
--- Get a given column.
-getColumn columnName (header, res) = V.map (\x ->  fst $ fromJust $ readDecimal x) $
+-- | Get a given column from results of readCSV
+getColumn columnName (header, res) = 
+    V.map (\x ->  fst $ fromJust $ readDecimal x) $
     V.map (\x -> x HL.! (C.pack columnName) ) res
 
-{-resdCSVWithDouble :: String -> Char -> IO( ( C.Header, V.Vector Double) )-}
-
--- ! Read a csv file with given delimiter .
+-- ! Read a csv file into a vector of double. Need to specify the delimiter.
+-- Any line starting with '#' will be ignored.
 readCSV :: String -> Char -> IO ((C.Header,  V.Vector C.NamedRecord))
 readCSV filepath delimeter = do 
     text <- BS.readFile filepath
