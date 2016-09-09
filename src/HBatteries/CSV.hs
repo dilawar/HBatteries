@@ -1,4 +1,4 @@
-module Lib
+module HBatteries.CSV 
     ( someFunc
     ) where
 

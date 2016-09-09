@@ -1,6 +1,7 @@
 module Main where
 
-import Lib
+import HBatteries.CSV
 
 main :: IO ()
-main = someFunc
+main = do 
+    putStrLn "Doing nothing"
