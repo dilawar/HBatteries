@@ -20,7 +20,7 @@ import qualified Data.ByteString.Internal as BS (c2w, w2c)
 
 type Vec = V.Vector Double
 
-instance C.FromRecord Double
+{-instance C.FromRecord Double-}
 
 -- | Get a given column from results of readCSV
 getColumn columnName (header, res) = 
