@@ -13,7 +13,7 @@ import qualified Data.ByteString.Lazy as BS
 import qualified Data.ByteString.Char8 as C
 import Data.ByteString.Lex.Fractional (readDecimal)
 import qualified Data.List as L
-import Data.Attoparsec.ByteString.Lazy (parse, maybeResult)
+import qualified Data.Attoparsec.ByteString.Lazy as P
 import qualified Data.HashMap.Strict as HL 
 import Data.ByteString.Lazy.Internal ( packChars )
 import qualified Data.ByteString.Internal as BS (c2w, w2c)
@@ -36,7 +36,7 @@ readCSV filepath delimeter = do
     -- Ignore all lines starting with '#'
     let filtered = filter (\l -> BS.index l 0 /= BS.c2w '#' ) lines
     let t = BS.intercalate (packChars "\n") filtered
-    return . fromJust . maybeResult $ parse (CP.csvWithHeader decodeOpt) t 
+    return . fromJust . P.maybeResult $ P.parse (CP.csvWithHeader decodeOpt) t 
   where 
     decodeOpt = C.DecodeOptions (BS.c2w delimeter)
 
