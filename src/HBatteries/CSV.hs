@@ -1,10 +1,10 @@
+{-# LANGUAGE ScopedTypeVariables #-}
 module HBatteries.CSV 
     ( 
     readCSV
     , getColumn
     ) where
 
-{-# LANGUAGE ScopedTypeVariables #-}
 import qualified Data.Csv as C
 import qualified Data.Csv.Parser as CP
 import Data.Maybe

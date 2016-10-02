@@ -29,5 +29,6 @@ line delimiter = sepBy cell (char delimiter)
 csvFile :: Char -> CharParser st [[String]]
 csvFile x = endBy (line  x) eol
 
+-- | parse csv file using Parsec 
 parseCSV :: Char -> String -> IO (Either ParseError [[ String ]])
 parseCSV delimiter filepath = parseFromFile (csvFile delimiter) filepath
